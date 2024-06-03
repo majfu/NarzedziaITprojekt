@@ -14,3 +14,15 @@ async def read_json(file_path):
             return json.load(await file.read())
     except json.JSONDecodeError as e:
         return f"Error parsing JSON on input file: {e}"
+
+
+async def write_json(data, file_path):
+    try:
+        async with aiofiles.open(file_path, 'w', encoding='utf-8') as file:
+            await file.write(json.dumps(data, indent=4))
+        return f"Data successfully written to {file_path}"
+    except TypeError as e:
+        return f"Error writing to file: {e}"
+
+
+
