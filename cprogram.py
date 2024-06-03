@@ -35,3 +35,12 @@ async def read_yaml(file_path):
 
 
 
+async def write_yaml(data, file_path):
+    try:
+        async with aiofiles.open(file_path, 'w', encoding='utf-8') as file:
+            await file.write(yaml.dump(data, file))
+        return f"Data successfully written to {file_path}"
+    except TypeError as e:
+        return f"Error writing to file: {e}"
+
+
