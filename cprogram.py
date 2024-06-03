@@ -26,3 +26,12 @@ async def write_json(data, file_path):
 
 
 
+async def read_yaml(file_path):
+    async with aiofiles.open(file_path, 'r', encoding='utf-8') as file:
+        try:
+            return yaml.safe_load(await file.read())
+        except yaml.YAMLError as e:
+            return f"Error parsing YAML on input file: {e}"
+
+
+
