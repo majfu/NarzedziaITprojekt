@@ -50,3 +50,14 @@ async def read_xml(file_path):
             return xmltodict.parse(await file.read())
     except Exception as e:
         return f"Error parsing XML on input file: {e}"
+
+
+async def write_xml(data, file_path):
+    try:
+        async with aiofiles.open(file_path, 'w', encoding='utf-8') as file:
+            xml_string = xmltodict.unparse(data, pretty=True)
+            await file.write(xml_string)
+            return f"Data successfully written to {file_path}"
+    except Exception as e:
+        return f"Error writing to file: {e}"
+
