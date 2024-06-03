@@ -44,3 +44,9 @@ async def write_yaml(data, file_path):
         return f"Error writing to file: {e}"
 
 
+async def read_xml(file_path):
+    try:
+        async with aiofiles.open(file_path, 'r', encoding='utf-8') as file:
+            return xmltodict.parse(await file.read())
+    except Exception as e:
+        return f"Error parsing XML on input file: {e}"
