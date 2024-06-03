@@ -33,8 +33,7 @@ jobs:
 
       - name: Install packages
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install xmltodict PyYAML aiofiles async_tkinter_loop pyinstaller
+          ./installResources.sh
 
       - name: Build .exe with PyInstaller
         run: |
