@@ -43,4 +43,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cprogram-exe
-          path: dist/cprogram.exe
+          path: dist/cprogram.app
