@@ -120,4 +120,20 @@ output_path_entry.grid(row=1, column=1, padx=10, pady=10)
 convert_button = tk.Button(root, text="Convert", command=async_handler(on_convert))
 convert_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
+def on_click1():
+    input_path_entry.delete(0, 'end')
+    file_path = filedialog.askopenfilename()
+    input_path_entry.insert(0, file_path)
+
+browse_button = tk.Button(root, text="Browse", command=on_click1)
+browse_button.grid(row=0, column=2, columnspan=2, padx=10, pady=10)
+
+def on_click2():
+    output_path_entry.delete(0, 'end')
+    file_path = filedialog.askdirectory()
+    output_path_entry.insert(0, file_path)
+
+browse_button = tk.Button(root, text="Browse", command=on_click2)
+browse_button.grid(row=1, column=2, columnspan=2, padx=10, pady=10)
+
 async_mainloop(root)
