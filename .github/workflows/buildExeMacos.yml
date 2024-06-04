@@ -35,12 +35,12 @@ jobs:
         run: |
           sh installResources.sh
 
-      - name: Build .exe with PyInstaller
+      - name: Build .app with PyInstaller
         run: |
           pyinstaller --onefile --noconsole cprogram.py
           
-      - name: Upload EXE artifact
+      - name: Upload APP artifact
         uses: actions/upload-artifact@v3
         with:
           name: cprogram-exe
-          path: dist/cprogram.app
+          path: dist/cprogram
